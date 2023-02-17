@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>email</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getUsername()}"></td>
+        <td th:text="${user.getPassword()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td>
+            <a th:href="@{/admin/edit/{id}(id = ${user.getId()})}">Edit</a>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/admin/delete/{id}(id = ${user.getId()})}">
+            <input type="submit" value="Delete">
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+<br>
+<hr/>
+
+<a th:href="@{/admin/new}">Add</a>
+
+<br>
+<hr/>
+
+<a th:href="@{/templates/user}">Go to user page</a>
+
+<br>
+<hr/>
+
+<a th:href="@{/logout}">Logout</a>
+
+</body>
+</html>
+
+<!--@{/users/{id}(id = ${user.getId()})/edit}-->
