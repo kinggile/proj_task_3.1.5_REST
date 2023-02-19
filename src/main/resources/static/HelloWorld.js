@@ -1,2 +1,1 @@
-
-console.log("PRIVET");
+let abc = 123;
