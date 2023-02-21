@@ -3,10 +3,10 @@ $(async function () {
 })
 
 
-const table = $('#tbodyAllUsersTable')
+
 
 async function getTableWithAllUsers() {
-
+    const table = $('#allUsersTable tbody')
     table.empty()
 
     fetch("http://localhost:8080/admin/rest")
@@ -20,7 +20,6 @@ async function getTableWithAllUsers() {
                             <td>${user.lastname}</td>
                             <td>${user.age}</td>
                             <td>${user.username}</td>
-                            <td>${user.roles}</td>
                         </tr>
                     )`
 
