@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/adminR")
+@RequestMapping("/admin/rest")
 public class AdminControllerREST {
     private final UserService userService;
     private final RoleService roleService;
