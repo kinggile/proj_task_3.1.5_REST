@@ -3,13 +3,14 @@ $(async function () {
 })
 
 
+// const table = $('#tbodyAllUsers')
+const table = document.querySelector('#tbodyAllUsers')
 
 
 async function getTableWithAllUsers() {
-    const table = $('#allUsersTable tbody')
     table.empty()
 
-    fetch("http://localhost:8080/admin/rest")
+    fetch("http://localhost:8080/rest")
         .then(response => response.json())
         .then(users => {
             users.forEach(user => {
@@ -20,6 +21,7 @@ async function getTableWithAllUsers() {
                             <td>${user.lastname}</td>
                             <td>${user.age}</td>
                             <td>${user.username}</td>
+                            <td>${user.password}</td>
                         </tr>
                     )`
 
