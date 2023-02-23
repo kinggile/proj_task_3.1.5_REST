@@ -2,12 +2,8 @@ $(async function () {
     await getTableWithAllUsers();
 })
 
-
-const table = $('#tbodyAllUsers')
-// const table = document.querySelector('#tbodyAllUsers')
-
-
 async function getTableWithAllUsers() {
+    const table = $('#tbodyAllUsers')
     table.empty()
 
     await fetch("http://localhost:8080/rest")
@@ -22,6 +18,20 @@ async function getTableWithAllUsers() {
                             <td>${user.age}</td>
                             <td>${user.username}</td>
                             <td>${user.roles.map(r => r.role.substring(5))}</td>
+                            
+                            <td>
+                                 <button type="button" class="btn btn-info" style="color: white"
+                                                    data-bs-toggle="modal" data-bs-target="#modal">
+                                                Edit
+                                 </button>
+                            </td>
+                            
+                              <td>
+                                  <button type="button" class="btn btn-danger"
+                                                    data-bs-toggle="modal" data-bs-target="#modal">
+                                                Delete
+                                  </button>
+                              </td>
                         </tr>
                     )`
 
@@ -29,9 +39,8 @@ async function getTableWithAllUsers() {
             })
         })
         .catch(err => console.log(err))
+
 }
-
-
 
 
 // window.onload = function() {
