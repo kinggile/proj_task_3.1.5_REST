@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/rest")
-public class AdminControllerREST {
+@RequestMapping("/rest")
+public class AdminRestController {
     private final UserService userService;
     private final RoleService roleService;
     private final PasswordEncoder passwordEncoder;
 
-    public AdminControllerREST(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
+    public AdminRestController(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;

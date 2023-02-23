@@ -10,7 +10,7 @@ const table = document.querySelector('#tbodyAllUsers')
 async function getTableWithAllUsers() {
     table.empty()
 
-    fetch("http://localhost:8080/rest")
+    await fetch("http://localhost:8080/rest")
         .then(response => response.json())
         .then(users => {
             users.forEach(user => {
