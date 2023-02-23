@@ -3,8 +3,8 @@ $(async function () {
 })
 
 
-// const table = $('#tbodyAllUsers')
-const table = document.querySelector('#tbodyAllUsers')
+const table = $('#tbodyAllUsers')
+// const table = document.querySelector('#tbodyAllUsers')
 
 
 async function getTableWithAllUsers() {
@@ -21,7 +21,7 @@ async function getTableWithAllUsers() {
                             <td>${user.lastname}</td>
                             <td>${user.age}</td>
                             <td>${user.username}</td>
-                            <td>${user.password}</td>
+                            <td>${user.roles.map(r => r.role.substring(5))}</td>
                         </tr>
                     )`
 
