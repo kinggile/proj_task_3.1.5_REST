@@ -63,8 +63,10 @@
             <div>
                 <ul class="nav nav-tabs" style="margin: 15px auto auto;">
                     <li class="nav-item">
-                        <button class="nav-link active" data-bs-toggle="tab" href="#adminpanel" role="tab" id="test">Users
-                            table</button>
+                        <button class="nav-link active" data-bs-toggle="tab" href="#adminpanel" role="tab"
+                                id="usersTable">Users
+                            table
+                        </button>
                     <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="tab" href="#newuser" role="tab">New user</button>
                     </li>
@@ -128,10 +130,8 @@
                                     <div class="col-3">
                                         <div class="text-center"><b>Role</b></div>
                                         <select multiple class="form-control" size="2" id="role" name="role">
-                                            <option th:each="role : ${roleUser}"
-                                                    th:text="${role.roleWithoutPrefix} + ' '"
-                                                    th:value="${role.id}">
-                                            </option>
+                                            <option>ADMIN</option>
+                                            <option>USER</option>
                                         </select>
                                     </div>
                                 </div>
