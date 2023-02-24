@@ -2,7 +2,6 @@ $(async function () {
     await getTableWithAllUsers()
 })
 
- 
 let roleList = [
     {id: 1, role: "ROLE_ADMIN"},
     {id: 2, role: "ROLE_USER"}
