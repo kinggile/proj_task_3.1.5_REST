@@ -1,4 +1,3 @@
-
 let newUserForm = document.forms["addNewUserForm"]
 
 $(async function () {
@@ -19,7 +18,7 @@ async function addUser() {
                 }
             }
 
-            return roles;
+            return roles
         }
 
         fetch("http://localhost:8080/rest/new", {

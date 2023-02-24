@@ -84,7 +84,7 @@
                         </div>
                         <div class="container-fluid bg-white" style="padding: 20px">
 
-                            <form th:method="POST" th:action="@{/admin}" id="addNewUserForm">
+                            <form id="addNewUserForm">
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>First name</b></div>
@@ -178,9 +178,10 @@
 
 
                                     <!--                                    MODAL EDIT-->
-                                    <div class="modal fade" id="edit" tabindex="-1"
-                                         aria-hidden="true">
-                                        <form th:method="PATCH" id="editForm">
+                                    <div class="modal fade" tabindex="-1"
+                                         aria-hidden="true" id="editModal">
+
+                                        <form id="editForm">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -279,9 +280,117 @@
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div>
                                     <!--                                    ENDING MODAL EDIT-->
 
+                                    <!--                                    MODAL DELETE-->
+                                    <div class="modal fade" tabindex="-1"
+                                         aria-hidden="true" id="deleteModal">
+
+                                        <form id="deleteForm">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit user</h5>
+                                                        <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>ID</b>
+                                                                    <input type="number"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>First name</b>
+                                                                    <input type="text"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>Last name</b>
+                                                                    <input type="text"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>Age</b>
+                                                                    <input type="number"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>Username</b>
+                                                                    <input type="text"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>Password</b>
+                                                                    <input type="text"
+                                                                           class="form-control"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-6">
+                                                                <div class="text-center">
+                                                                    <b>Role</b>
+                                                                    <select multiple class="form-control" size="2"
+                                                                            disabled>
+                                                                        <option>123</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger">Delete
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <!--                                    ENDING MODAL DELETE-->
                                 </table>
                             </td>
                         </tr>

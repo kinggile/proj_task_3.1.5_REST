@@ -27,13 +27,14 @@ async function getTableWithAllUsers() {
                             
                             <td>
                                  <button type="button" id="editBtn" class="btn btn-info" data-bs-toggle="modal"
-                                 style="color: white">
+                                 style="color: white" data-bs-target="#editModal">
                                                 Edit
                                  </button>
                             </td>
                             
                               <td>
-                                  <button type="button" id="deleteBtn" class="btn btn-danger" data-bs-toggle="modal">
+                                  <button type="button" id="deleteBtn" class="btn btn-danger" data-bs-toggle="modal"
+                                  data-bs-target="#deleteModal">
                                                 Delete
                                   </button>
                               </td>
