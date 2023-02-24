@@ -10,29 +10,91 @@
 <body>
 
 <div class="container">
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">age</th>
-        </tr>
-        </thead>
 
-        <tbody>
-        </tbody>
-    </table>
+    <button type="button" class="btn btn-info" style="color: white" data-bs-toggle="modal" >
+        Edit
+    </button>
+
+    <div class="modal fade" id="edit" tabindex="-1"
+         aria-hidden="true">
+        <form th:method="PATCH" id="editForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit user</h5>
+                        <button type="button" class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <b>ID</b>
+                                    <input type="number"
+                                           class="form-control"
+
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <b>First name</b>
+                                    <input type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <b>Age</b>
+                                    <input type="number"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <b>Role</b>
+                                    <select multiple class="form-control" size="2"
+                                            name="role">
+                                        <option>
+
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">Edit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 
-
-<script src="../static/test.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="../static/test.js"></script>
 </body>
 </html>
 
 
 
 
-<script src="../static/test.js"></script>

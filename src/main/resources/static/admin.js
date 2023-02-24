@@ -2,11 +2,26 @@ $(async function () {
     await getTableWithAllUsers();
 })
 
+
+const fetchService = {
+    head: {
+        "Accept-Type": "application/json",
+        "Content-Type": "application/json"
+    },
+
+    findAllUsers: async () => await fetch("http://localhost:8080/rest"),
+    addNewUser: async (user) => await fetch("http://localhost:8080/rest/new", {
+        method: "POST",
+        headers: fetchService.head,
+        body: JSON.stringify(user)
+    })
+}
+
 async function getTableWithAllUsers() {
     const table = $('#tbodyAllUsers')
     table.empty()
 
-    await fetch("http://localhost:8080/rest")
+    await fetchService.findAllUsers()
         .then(response => response.json())
         .then(users => {
             users.forEach(user => {
@@ -20,15 +35,13 @@ async function getTableWithAllUsers() {
                             <td>${user.roles.map(r => r.role.substring(5))}</td>
                             
                             <td>
-                                 <button type="button" class="btn btn-info" style="color: white"
-                                                    data-bs-toggle="modal" data-bs-target="#modal">
+                                 <button type="button" class="btn btn-info" style="color: white" data-bs-toggle="modal">
                                                 Edit
                                  </button>
                             </td>
                             
                               <td>
-                                  <button type="button" class="btn btn-danger"
-                                                    data-bs-toggle="modal" data-bs-target="#modal">
+                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal">
                                                 Delete
                                   </button>
                               </td>
@@ -39,8 +52,8 @@ async function getTableWithAllUsers() {
             })
         })
         .catch(err => console.log(err))
-
 }
+
 
 
 // window.onload = function() {
