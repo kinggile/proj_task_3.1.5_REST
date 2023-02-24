@@ -42,7 +42,7 @@ async function addUser() {
             .then(() => {
                 newUserForm.reset()
                 getTableWithAllUsers();
-                $("#test").click()
+                document.querySelector("#test").click()
             })
     })
 }
