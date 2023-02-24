@@ -2,6 +2,8 @@ $(async function () {
     await getTableWithAllUsers()
 })
 
+headerFilling();
+
 let roleList = [
     {id: 1, role: "ROLE_ADMIN"},
     {id: 2, role: "ROLE_USER"}
@@ -45,6 +47,17 @@ async function getTableWithAllUsers() {
             })
         })
         .catch(err => console.log(err))
+}
+
+
+function headerFilling() {
+    fetch("http://localhost:8080/rest")
+        .then(res => res.json())
+        .then(data => {
+            $('#login').append(data.username)
+            let role = data.roles.map(r => r.role.substring(5))
+            $('#roleUser').append(role)
+        })
 }
 
 

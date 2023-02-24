@@ -17,20 +17,21 @@
 
             <!--                слева email            -->
             <span class="navbar-text text-white" style="margin: auto 10px auto">
-                <strong><th:block th:each="user : ${users}" th:text="${users.getUsername()}"></th:block></strong>
+                <strong id="login">username</strong>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}"
-                          th:text="${user.getRoleWithoutPrefix() + ' '}"></th:block>
+                <a id="userRole">ADMIN</a>
              </span>
 
             <!--                кнопка выхода-->
             <div>
                 <ul class="nav float-end">
                     <li class="nav-item" style="margin: auto 10px auto">
-                        <form th:action="@{/logout}" th:method="post">
+
+                        <form th:action="@{/logout}" th:method="POST">
                             <input type="submit" value="Logout"
                                    class="bg-color: #404040 form-control-plaintext text-white-50 ">
                         </form>
+
                     </li>
                 </ul>
             </div>
