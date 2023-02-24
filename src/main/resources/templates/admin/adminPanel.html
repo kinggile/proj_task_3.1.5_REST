@@ -80,7 +80,8 @@
                             <div class="h4" style="margin: auto 7px auto; padding: 9px">Add new user</div>
                         </div>
                         <div class="container-fluid bg-white" style="padding: 20px">
-                            <form th:method="POST" th:action="@{/admin}">
+
+                            <form th:method="POST" th:action="@{/admin}" id="addNewUserForm">
                                 <div class="row justify-content-center">
                                     <div class="col-3">
                                         <div class="text-center"><b>First name</b></div>
@@ -141,6 +142,7 @@
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
 
