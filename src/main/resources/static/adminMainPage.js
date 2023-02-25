@@ -3,7 +3,6 @@ $(async function () {
     await headerFilling()
 })
 
-
 let roleList = [
     {id: 1, role: "ROLE_ADMIN"},
     {id: 2, role: "ROLE_USER"}
@@ -31,8 +30,10 @@ async function getTableWithAllUsers() {
                             
                             <td>
                                  <button type="button" id="editBtn" class="btn btn-info" data-bs-toggle="modal"
-                                 style="color: white" data-bs-target="#editModal">
+                                 style="color: white" onclick="editModalData(${user.id})">
                                                 Edit
+<!--                                                data-bs-target="#editModal"-->
+<!--                                                onclick="editModalData(${user.id})"-->
                                  </button>
                             </td>
                             
@@ -46,8 +47,6 @@ async function getTableWithAllUsers() {
                     )`
 
                 table.append(fillingTable)
-                // login.append(user.username)
-                // roles.append(user.roles.map(r => r.role.substring(5)))
             })
         })
         .catch(err => console.log(err))
@@ -55,12 +54,11 @@ async function getTableWithAllUsers() {
 
 
 async function headerFilling() {
-
     await fetch('http://localhost:8080/rest/info')
         .then(res => res.json())
         .then(info => {
                 $('#login').append(info.username)
-                let roles = info.roles.map(r => r.role.substring(5))
+                let roles = info.roles.map(r => r.role.substring(5) + " ")
                 $('#userRoleHeader').append(roles)
             }
         )
