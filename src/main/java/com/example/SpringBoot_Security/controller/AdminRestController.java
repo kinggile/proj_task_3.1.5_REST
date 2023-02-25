@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -48,6 +49,12 @@ public class AdminRestController {
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+    }
+
+    @GetMapping("/info")
+    public ResponseEntity<User> userInfo(Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
 

@@ -1,8 +1,8 @@
 $(async function () {
     await getTableWithAllUsers()
+    await headerFilling()
 })
 
-headerFilling();
 
 let roleList = [
     {id: 1, role: "ROLE_ADMIN"},
@@ -12,6 +12,8 @@ let roleList = [
 
 async function getTableWithAllUsers() {
     const table = $('#tbodyAllUsers')
+    let login = $('#login')
+    let roles = $('#userRoleHeader')
     table.empty()
 
     await fetch("http://localhost:8080/rest")
@@ -44,23 +46,25 @@ async function getTableWithAllUsers() {
                     )`
 
                 table.append(fillingTable)
+                // login.append(user.username)
+                // roles.append(user.roles.map(r => r.role.substring(5)))
             })
         })
         .catch(err => console.log(err))
 }
 
 
-function headerFilling() {
-    fetch("http://localhost:8080/rest")
+async function headerFilling() {
+
+    await fetch('http://localhost:8080/rest/info')
         .then(res => res.json())
-        .then(data => {
-            $('#login').append(data.username)
-            let role = data.roles.map(r => r.role.substring(5))
-            $('#roleUser').append(role)
-        })
+        .then(info => {
+                $('#login').append(info.username)
+                let roles = info.roles.map(r => r.role.substring(5))
+                $('#userRoleHeader').append(roles)
+            }
+        )
 }
-
-
 
 
 // window.onload = function() {
