@@ -36,6 +36,7 @@ public class AdminRestController {
 
     @PostMapping("/new")
     public ResponseEntity<User> createNewUser(@RequestBody User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
