@@ -57,5 +57,12 @@ public class AdminRestController {
         User user = userService.findByUsername(principal.getName());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping("/principal")
+    public ResponseEntity<User> userInfoPrincipal(Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }
 
