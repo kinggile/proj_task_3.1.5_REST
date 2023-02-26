@@ -53,7 +53,8 @@ async function deleteUser() {
         })
 
             .then(() => {
-                document.querySelector("#deleteCloseButton").click()
+                // document.querySelector("#deleteCloseButton").click()
+                $('#deleteCloseButton').click();
 
                 // deleteCloseButton
                 getTableWithAllUsers();

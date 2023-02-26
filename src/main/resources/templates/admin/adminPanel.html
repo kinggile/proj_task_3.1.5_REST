@@ -266,7 +266,7 @@
                                                                 <div class="text-center">
                                                                     <b>Role</b>
                                                                     <select multiple class="form-control" size="2"
-                                                                            name="roles">
+                                                                            name="roles" id="rolesEdit">
                                                                         <option>ADMIN</option>
                                                                         <option>USER</option>
                                                                     </select>
@@ -381,7 +381,7 @@
                                                                 <div class="text-center">
                                                                     <b>Role</b>
                                                                     <select multiple class="form-control" size="2"
-                                                                            disabled name="roles">
+                                                                            disabled name="roles" id="rolesDelete">
                                                                         <!--                                                                        <option>123</option>-->
                                                                     </select>
                                                                 </div>
@@ -391,10 +391,9 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close
+                                                                data-bs-dismiss="modal" id="deleteCloseButton">Close
                                                         </button>
-                                                        <button type="submit" class="btn btn-danger"
-                                                                id="deleteCloseButton">Delete
+                                                        <button type="submit" class="btn btn-danger">Delete
                                                         </button>
                                                     </div>
                                                 </div>
