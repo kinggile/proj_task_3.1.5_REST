@@ -11,8 +11,6 @@ let roleList = [
 
 async function getTableWithAllUsers() {
     const table = $('#tbodyAllUsers')
-    let login = $('#login')
-    let roles = $('#userRoleHeader')
     table.empty()
 
     await fetch("http://localhost:8080/rest")

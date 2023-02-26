@@ -17,9 +17,9 @@
 
             <!--                слева email            -->
             <span class="navbar-text text-white" style="margin: auto 10px auto">
-                <strong><th:block th:each="user : ${users}" th:text="${users.getUsername()}"></th:block></strong>
+                <a><strong id="loginUser"></strong></a>
                 <a>with roles: </a>
-                <th:block th:each="user : ${users.getRoles()}" th:text="${user.getRoleWithoutPrefix()}"></th:block>
+                <a id="userRoleHeaderUser"></a>
              </span>
 
             <!--                кнопка выхода-->
@@ -80,32 +80,21 @@
                                 <th scope="col">Role</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr class="border-top" th:each="user : ${users}">
-                                <td th:text="${user.id}">213</td>
-                                <td th:text="${user.firstname}">123</td>
-                                <td th:text="${user.lastname}">123</td>
-                                <td th:text="${user.getAge()}">123</td>
-                                <td th:text="${user.getUsername()}">123</td>
-                                <td>
-                                    <th:block th:each="role : ${user.getRoles()}"
-                                              th:text="${role.getRoleWithoutPrefix()}">
-                                    </th:block>
-                                </td>
-                            </tr>
-                            </tbody>
+                            <tbody id="tbodyUser"></tbody>
                         </table>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" src="userInfoPage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
