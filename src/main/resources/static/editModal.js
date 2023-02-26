@@ -3,13 +3,13 @@ let editForm = document.forms['editForm']
 $(async function () {
     await editUser()
 })
+
 async function getUserById(id) {
     let userFetch = await fetch(`http://localhost:8080/rest/${id}`)
     return await userFetch.json()
-    // todo return await?
 }
 
-async function openAndFillModal(form, modal, id) {
+async function openAndFillEditModal(form, modal, id) {
     modal.show()
 
     let user = await getUserById(id)
@@ -25,7 +25,7 @@ async function openAndFillModal(form, modal, id) {
 
 async function editModalData(id) {
     const modal = new bootstrap.Modal(document.querySelector('#editModal'))
-    await openAndFillModal(editForm, modal, id)
+    await openAndFillEditModal(editForm, modal, id)
 }
 
 async function editUser() {

@@ -32,17 +32,15 @@ async function getTableWithAllUsers() {
                                  <button type="button" id="editBtn" class="btn btn-info" data-bs-toggle="modal"
                                  style="color: white" onclick="editModalData(${user.id})">
                                                 Edit
-<!--                                                data-bs-target="#editModal"-->
-<!--                                                onclick="editModalData(${user.id})"-->
                                  </button>
                             </td>
                             
-                              <td>
-                                  <button type="button" id="deleteBtn" class="btn btn-danger" data-bs-toggle="modal"
-                                  data-bs-target="#deleteModal">
+                            <td>
+                                 <button type="button" id="deleteBtn" class="btn btn-danger" data-bs-toggle="modal"
+                                  onclick="deleteModalData(${user.id})">
                                                 Delete
-                                  </button>
-                              </td>
+                                 </button>
+                            </td>
                         </tr>
                     )`
 
