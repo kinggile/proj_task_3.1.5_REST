@@ -15,7 +15,12 @@ async function openAndFillModal(form, modal, id) {
     let user = await getUserById(id)
 
     form.id.value = user.id
-    form.id.firstname = user.firstname
+    form.firstname.value = user.firstname
+    form.lastname.value = user.lastname
+    form.age.value = user.age
+    form.username.value = user.username
+    form.password.value = user.password
+    form.roles.value = user.roles.id
 }
 
 async function editModalData(id) {
@@ -27,6 +32,19 @@ async function editUser() {
     editForm.addEventListener('submit', e => {
         e.preventDefault()
 
+        let checkRole = () => {
+            let roles = []
+            let option = document.querySelector("#rolesEdit").options
+
+            for (let i = 0; i < option.length; i++) {
+                if (option[i].selected) {
+                    roles.push(roleList[i])
+                }
+            }
+
+            return roles
+        }
+
         //todo is correct url?
         fetch('http://localhost:8080/rest/edit/' + editForm.id.value, {
             method: 'PATCH',
@@ -36,7 +54,13 @@ async function editUser() {
 
             body: JSON.stringify({
                 id: editForm.id.value,
-                firstname: editForm.firstname.value
+                firstname: editForm.firstname.value,
+                lastname: editForm.lastname.value,
+                age: editForm.age.value,
+                username: editForm.username.value,
+                password: editForm.password.value,
+                roles: checkRole()
+
             })
         })
 
