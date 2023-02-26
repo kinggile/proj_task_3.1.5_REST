@@ -9,7 +9,7 @@ async function getUserById(id) {
     return await userFetch.json()
 }
 
-async function openAndFillEditModal(form, modal, id) {
+async function openAndFillModal(form, modal, id) {
     modal.show()
 
     let user = await getUserById(id)
@@ -20,12 +20,12 @@ async function openAndFillEditModal(form, modal, id) {
     form.age.value = user.age
     form.username.value = user.username
     form.password.value = user.password
-    form.roles.value = user.roles.id
+    form.roles.value = user.roles[0].id
 }
 
 async function editModalData(id) {
     const modal = new bootstrap.Modal(document.querySelector('#editModal'))
-    await openAndFillEditModal(editForm, modal, id)
+    await openAndFillModal(editForm, modal, id)
 }
 
 async function editUser() {
